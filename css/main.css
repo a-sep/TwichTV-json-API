@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400);
 
 body {
-    background-color: #444444;
-    color: #D1DBBD;
+    background-color: #5C4B51;
+    color: #F2EBBF;
     margin: 0;
     padding: 0;
     text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.3);
@@ -13,7 +13,7 @@ a{
     color: inherit;
 }
  a:hover, a:visited{
-     /*color: #91AA9D;*/
+     color: #F3B562;
      text-decoration: none;
  }
 
@@ -28,3 +28,10 @@ a{
  }
 
 /*=================== TESTS =======================*/
+ #colorsPallet{
+     color: #5C4B51;
+     color: #8CBEB2;
+     color: #F2EBBF;
+     color: #F3B562;
+     color: #F06060;
+ }
