@@ -1,37 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400);
 
 body {
-    background-color: #5C4B51;
-    color: #F2EBBF;
+    background-color: #193441;
+    color: #E6E2AF;
     margin: 0;
     padding: 0;
-    text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.3);
+    text-shadow: 1.2px 1.2px 0 rgba(0, 0, 0, 0.5);
     font-family: 'Lato', sans-serif;
 }
 
-a{
+a {
     color: inherit;
 }
- a:hover, a:visited{
-     color: #F3B562;
-     text-decoration: none;
- }
 
- img{
-     width: 3em;
-     height: 3em;
- }
+a:hover, a:visited {
+    color: #A7A37E;
+    text-decoration: none;
+}
 
- .row{
-     margin-left: 5%;
-     margin-right: 5%;
- }
+img {
+    width: 3em;
+    height: 3em;
+}
 
-/*=================== TESTS =======================*/
- #colorsPallet{
-     color: #5C4B51;
-     color: #8CBEB2;
-     color: #F2EBBF;
-     color: #F3B562;
-     color: #F06060;
- }
+li {
+}
+
+.row {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 12%;
+    margin-right: 12%;
+    padding: 4px;
+}
+
+.online, #on {
+    background-color: #758A7F;
+}
+
+.offline, #off {
+    background-color: #3E606F;
+}

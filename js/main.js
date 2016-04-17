@@ -4,16 +4,17 @@ var channels = ["freecodecamp", "brunofin", "storbeck", "terakilobyte", "food", 
 
 function show(name, logo, url, status) {
 
-    var html = "";
-    html += '<li><div class="row text-center">';
-    if (logo) {
-        html += '<div class="col-xs-2"><img src=' + logo + ' class="img-circle"></div>';
 
+    var html = "";
+    html += '<li><div class="row text-center ' + (status == "Offline" || status == "Account Closed" ? "offline" : "online") + '">' +
+        '<div class="col-md-2 col-xs-6">';
+    if (logo) {
+        html += '<img src=' + logo + ' class="img-circle pull-left">';
     } else {
-        html += '<div class="col-xs-2"><i class="fa fa-3x fa-question-circle" aria-hidden="true"></i></div>';
+        html += '<i class="fa fa-3x fa-question-circle pull-left" aria-hidden="true"></i>';
     }
-    html += '<div class="col-sm-3"><a href=' + url + ' target="_blank">' + name + '</a></div>';
-    html += '<div class="col-sm-7">' + status + '</div>';
+    html += '</div><div class="col-md-2 "><a href=' + url + ' target="_blank">' + name + '</a></div>';
+    html += '<div class="col-md-8 ">' + status + '</div>';
     html += '</div></li>';
 
     $("#list").append(html);
@@ -55,6 +56,22 @@ function twichChannels() {
 
 $(document).ready(function () {
     twichChannels();
+
+    $("#all").on("click", function () {
+        $("li").show();
+    });
+
+    $("#on").on("click", function () {
+        $("li").show();
+        $('li').has('.offline').hide();
+    });
+
+    $("#off").on("click", function () {
+        $("li").show();
+        $('li').has('.online').hide();
+
+    });
+
 });
 
 

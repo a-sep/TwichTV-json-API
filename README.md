@@ -1,8 +1,8 @@
 # TwichTV json API
 
-ver. 0.5
+ver. 1.0
 
 freeCodeCamp project...
-html - in progres,
-css - in progress,
+html - works fine;
+css - works fine;
 js - works fine;
