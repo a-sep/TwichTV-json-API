@@ -1,11 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400);
 
 body {
-    background-color: #002F2F;
-    color: #E6E2AF;
+    background-color: #444444;
+    color: #D1DBBD;
     margin: 0;
     padding: 0;
     text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.3);
     font-family: 'Lato', sans-serif;
 }
 
+a{
+    color: inherit;
+}
+ a:hover, a:visited{
+     /*color: #91AA9D;*/
+     text-decoration: none;
+ }
+
+ img{
+     width: 3em;
+     height: 3em;
+ }
+
+ .row{
+     margin-left: 5%;
+     margin-right: 5%;
+ }
+
+/*=================== TESTS =======================*/
