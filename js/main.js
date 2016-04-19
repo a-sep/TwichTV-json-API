@@ -13,7 +13,7 @@ function show(name, logo, url, status) {
     } else {
         html += '<i class="fa fa-3x fa-question-circle pull-left" aria-hidden="true"></i>';
     }
-    html += '</div><div class="col-md-2 "><a href=' + url + ' target="_blank">' + name + '</a></div>';
+    html += '</div><div class="col-md-2 "><a href=' + url + ' target="_blank"><i>' + name + '</i></a></div>';
     html += '<div class="col-md-8 ">' + status + '</div>';
     html += '</div></li>';
 
