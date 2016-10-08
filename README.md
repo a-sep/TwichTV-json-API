@@ -1,8 +1,6 @@
 # TwichTV json API
-
 ver. 1.0
 
+link http://a-sep.github.io/TwichTV-json-API/
+
 freeCodeCamp project...
-html - works fine;
-css - works fine;
-js - works fine;
