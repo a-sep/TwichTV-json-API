@@ -1,13 +1,24 @@
-//========= ver. 1.0  ===========
+//========= ver. 2.0  ===========
 
-var channels = ["freecodecamp", "brunofin", "storbeck", "terakilobyte", "food", "habathcx", "RobotCaleb", "thomasballinger", "noobs2ninjas", "beohoff", "ESL_SC2", "OgamingSC2", "minecraft", "cretetion"];
+var channels = [
+    "ESL_SC2",
+    "OgamingSC2",
+    "cretetion",
+    "freecodecamp",
+    "storbeck",
+    "habathcx",
+    "RobotCaleb",
+    "noobs2ninjas",
+    " brunofin",
+    "comster404"
+];
 
 function show(name, logo, url, status) {
 
-
     var html = "";
-    html += '<li><div class="row text-center ' + (status == "Offline" || status == "Account Closed" ? "offline" : "online") + '">' +
-        '<div class="col-md-2 col-xs-6">';
+    html += '<li><div class="row text-center ' + (status == "Offline" || status == "Account Closed"
+        ? "offline"
+        : "online") + '">' + '<div class="col-md-2 col-xs-6">';
     if (logo) {
         html += '<img src=' + logo + ' class="img-circle pull-left">';
     } else {
@@ -22,11 +33,16 @@ function show(name, logo, url, status) {
 
 function twichChannels() {
 
-    $.each(channels, function (index, value) {
-        var name, logo, url, status;
+    $.each(channels, function(index, channel) {
+        var name,
+            logo,
+            url,
+            status;
 
-        $.getJSON('https://api.twitch.tv/kraken/streams/' + value, function (data) {
-            console.log(data);
+        $.getJSON('https://api.twitch.tv/kraken/streams/' + channel + '?client_id=j6npdw87ommedrlq2smp7ythpn37jez&callback=?', function(data, status) {
+            console.log(data, status);
+
+            console.log(data.error, data.status, data.message);
 
             if (data.stream) {
                 name = data.stream.channel.display_name;
@@ -35,44 +51,49 @@ function twichChannels() {
                 status = data.stream.channel.status;
                 show(name, logo, url, status);
             } else {
-                // console.log(value);
-                $.getJSON('https://api.twitch.tv/kraken/channels/' + value, function (data) {
+                // console.log(channel);
+                $.getJSON('https://api.twitch.tv/kraken/channels/' + channel + '?client_id=j6npdw87ommedrlq2smp7ythpn37jez&callback=?', function(data) {
                     // console.log(data.display_name);
-                    name = data.display_name;
-                    logo = data.logo;
-                    url = data.url;
-                    status = "Offline";
+                    if (data.error) {
+                        name = data.message;
+                        logo = data.logo;
+                        url = "#";
+                        status = "Account Closed";
+                    } else {
+                        name = data.display_name;
+                        logo = data.logo;
+                        url = data.url;
+                        status = "Offline";
+                    }
                     show(name, logo, url, status);
                 });
             }
-        }).fail(function () {
-            name = value;
+
+        }).fail(function() {
+            name = channel;
             url = "#";
             status = "Account Closed";
             show(name, logo, url, status);
         });
-    });
-}
 
-$(document).ready(function () {
+    }); // getJSON end
+} // twichChannels() end
+
+$(document).ready(function() {
     twichChannels();
 
-    $("#all").on("click", function () {
+    $("#all").on("click", function() {
         $("li").show();
     });
 
-    $("#on").on("click", function () {
+    $("#on").on("click", function() {
         $("li").show();
         $('li').has('.offline').hide();
     });
 
-    $("#off").on("click", function () {
+    $("#off").on("click", function() {
         $("li").show();
         $('li').has('.online').hide();
 
     });
-
 });
-
-
-

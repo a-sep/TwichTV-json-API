@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400);
-
 body {
     background-color: #193441;
     color: #E6E2AF;
@@ -21,9 +20,6 @@ a:hover, a:visited {
 img {
     width: 3em;
     height: 3em;
-}
-
-li {
 }
 
 .row {
